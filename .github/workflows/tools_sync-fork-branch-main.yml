@@ -7,7 +7,7 @@ name: Manage - Sync fork (Branch main)
     - cron: '0 0 * * *'
 
 permissions:
-      contents: read
+  contents: read
 
 jobs:
   update_external_airflow_fork:
@@ -17,7 +17,7 @@ jobs:
     permissions:
       contents: read
 
-    steps:     
+    steps:
       - name: Generate app token
         uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf  # v2.2.1
         id: generate-token
