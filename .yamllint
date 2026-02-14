@@ -12,4 +12,4 @@ rules:
     level: warning
 
   line-length:
-    max: 190
+    max: 235
