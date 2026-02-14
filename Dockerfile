@@ -1,4 +1,5 @@
-FROM alpine:3
+# Reference image
+FROM alpine:3.22.2
 
 # Metadata
 LABEL maintainer="Daniel Wydler"
