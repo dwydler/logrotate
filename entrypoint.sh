@@ -144,7 +144,7 @@ main() {
     
     # Run logrotate once at startup
     echo "Running logrotate at startup..."
-    $CRON_SCHEDULE_EXPRESSION $LOGROTATE_BIN $LOGROTATE_CONF -s $LOGROTATE_STATUS_DIR/$LOGROTATE_STATUS_FILE
+    $LOGROTATE_BIN $LOGROTATE_CONF -s $LOGROTATE_STATUS_DIR/$LOGROTATE_STATUS_FILE
     
     # Start cron in foreground
     echo "Starting cron daemon..."
