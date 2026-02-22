@@ -33,8 +33,6 @@ This container runs logrotate to manage log files from other containers in your 
 ## 🚀 Quick Start
 
 ```yaml
-version: '3.8'
-
 services:
   # Example service that generates logs
   app:
