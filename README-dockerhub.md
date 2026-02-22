@@ -14,8 +14,6 @@ A lightweight Docker image that performs log rotation for other containers runni
 
 - **`latest`**: Latest stable build (updated monthly) - recommended for testing
 - **`1.2.3`**: Specific version (from git tag v1.2.3) - recommended for production
-- **`1.2`**: Latest patch version of a specific minor version - for controlled updates
-- **`1`**: Latest minor.patch version of a specific major version - for automatic updates
 
 Example: `wydler/logrotate:1.2.3`
 
