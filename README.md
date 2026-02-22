@@ -40,8 +40,6 @@ All environment variables are optional and have default values:
 ### Docker Compose Example
 
 ```yaml
-version: '3.8'
-
 services:
   # Example service that generates logs
   traefik:
