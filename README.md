@@ -162,9 +162,9 @@ The Docker images follow semantic versioning:
 
 | Tag Format | Example | Description |
 |------------|---------|-------------|
-| `latest` | `wydler/logrotate:latest` | Latest stable build from the master branch (updated monthly) |
+| `latest` | `wydler/logrotate:latest` | Latest stable build from the latest release |
 | `{version}` | `wydler/logrotate:1.2.3` | Specific version (from git tag v1.2.3) |
-| `master` | `wydler/logrotate:master` | Latest build from the master branch (same as latest, updated monthly) |
+| `master` | `wydler/logrotate:master` | Latest build from the master branch |
 | `fix/enc-{name}` | `wydler/logrotate:nec-infos-adapted-for-fork` | Build from a specific branch |
 
 To use a specific version in your docker-compose.yml, choose one of these options:
