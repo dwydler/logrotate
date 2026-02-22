@@ -74,13 +74,13 @@ generate_logrotate_config() {
 setup_cron() {
     echo "Setting up cron job for logrotate..."
 
-    # 
+    # Assign values ​​to variables
     LOGROTATE_BIN=$(which logrotate)
     LOGROTATE_CONF="/etc/logrotate.d/docker-logs"
     LOGROTATE_STATUS_DIR=$(dirname "$LOGS_PATH")
     LOGROTATE_STATUS_FILE="logrotate.status"
     
-    # Create cron job based on TRIGGER_INTERVAL
+    # Set content of var based on TRIGGER_INTERVAL
     case "${TRIGGER_INTERVAL}" in
         hourly)
             CRON_SCHEDULE_EXPRESSION="0 * * * *"
@@ -103,7 +103,7 @@ setup_cron() {
             ;;
     esac
     
-    #
+    # Create cron job based on TRIGGER_INTERVAL
     echo "$CRON_SCHEDULE_EXPRESSION $LOGROTATE_BIN $LOGROTATE_CONF -s $LOGROTATE_STATUS_DIR/$LOGROTATE_STATUS_FILE" > /etc/crontabs/root
 
     # Add an additional job to run logrotate if MAX_SIZE is specified (check every 15 minutes)
@@ -144,7 +144,7 @@ main() {
     
     # Run logrotate once at startup
     echo "Running logrotate at startup..."
-    /usr/sbin/logrotate /etc/logrotate.d/docker-logs
+    $CRON_SCHEDULE_EXPRESSION $LOGROTATE_BIN $LOGROTATE_CONF -s $LOGROTATE_STATUS_DIR/$LOGROTATE_STATUS_FILE
     
     # Start cron in foreground
     echo "Starting cron daemon..."
