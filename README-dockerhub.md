@@ -71,7 +71,7 @@ volumes:
 
 ## 🔗 Links
 
-- [GitHub Repository](https://github.com/wydler/docker-logrotate)
+- [GitHub Repository](https://github.com/dwydler/logrotate-docker)
 - [Full Documentation](https://github.com/dwydler/logrotate-docker/blob/master/README.md)
 
 ## 📄 License
