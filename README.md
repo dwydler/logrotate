@@ -176,7 +176,7 @@ logrotate:
 ```
 
 ```yaml
-# Option 3: Use latest version
+# Option 2: Use latest version
 logrotate:
   image: wydler/logrotate:latest
 ```
