@@ -153,7 +153,7 @@ docker build -t wydler/logrotate:latest .
 
 This project uses GitHub Actions for continuous integration and delivery:
 
-1. **Versioned Releases**: Creating a new release e.g., `v1.2.3`) triggers a versioned (pre)release.
+1. **Versioned Releases**: Creating a new release e.g., `1.2.3`) triggers a versioned (pre)release.
 2. **Docker Hub Publishing**: Successfully built images are automatically published to [Docker Hub](https://hub.docker.com/r/wydler/logrotate).
 
 ### Versioning Strategy
@@ -163,7 +163,7 @@ The Docker images follow semantic versioning:
 | Tag Format | Example | Description |
 |------------|---------|-------------|
 | `latest` | `wydler/logrotate:latest` | Latest stable build from the latest release |
-| `{version}` | `wydler/logrotate:1.2.3` | Specific version (from git tag v1.2.3) |
+| `{version}` | `wydler/logrotate:1.2.3` | Specific version (from git tag 1.2.3) |
 | `master` | `wydler/logrotate:master` | Latest build from the master branch |
 | `fix/enc-{name}` | `wydler/logrotate:nec-infos-adapted-for-fork` | Build from a specific branch |
 
