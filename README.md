@@ -4,8 +4,8 @@
 
 # Docker Logrotate
 
-[![Build and Publish Docker Image](https://github.com/samuelru/logrotate/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/samuelru/logrotate/actions/workflows/docker-publish.yml)
-[![Docker Hub](https://img.shields.io/docker/pulls/samuelrunggaldier/logrotate.svg)](https://hub.docker.com/r/samuelrunggaldier/logrotate)
+[![Build and Publish Docker Image](https://github.com/dwydler/logrotate-docker/actions/workflows/build.docker.images.yml/badge.svg)](https://github.com/dwydler/logrotate-docker/blob/master/.github/workflows/build.docker.images.yml)
+[![Docker Hub](https://img.shields.io/docker/pulls/wydler/logrotate.svg)](https://hub.docker.com/r/wydler/logrotate)
 
 A Docker image that performs log rotation for other containers running in the same Docker Swarm environment.
 
@@ -40,8 +40,6 @@ All environment variables are optional and have default values:
 ### Docker Compose Example
 
 ```yaml
-version: '3.8'
-
 services:
   # Example service that generates logs
   traefik:
@@ -62,7 +60,7 @@ services:
 
   # Logrotate service
   logrotate:
-    image: samuelrunggaldier/logrotate:latest  # Use latest version, or specify a version like 1.0.0
+    image: wydler/logrotate:latest  # Use latest version, or specify a version like 1.0.0
     volumes:
       - logs:/logs
     environment:
@@ -96,7 +94,7 @@ docker stack deploy -c docker-compose.yml mystack
 
 ```yaml
 logrotate:
-  image: samuelrunggaldier/logrotate:latest
+  image: wydler/logrotate:latest
   volumes:
     - logs:/logs
   environment:
@@ -109,7 +107,7 @@ logrotate:
 
 ```yaml
 logrotate:
-  image: samuelrunggaldier/logrotate:latest
+  image: wydler/logrotate:latest
   volumes:
     - logs:/logs
   environment:
@@ -121,7 +119,7 @@ logrotate:
 
 ```yaml
 logrotate:
-  image: samuelrunggaldier/logrotate:latest
+  image: wydler/logrotate:latest
   volumes:
     - logs:/logs
   environment:
@@ -132,7 +130,7 @@ logrotate:
 
 ```yaml
 logrotate:
-  image: samuelrunggaldier/logrotate:latest
+  image: wydler/logrotate:latest
   volumes:
     - logs:/logs
   environment:
@@ -148,17 +146,15 @@ logrotate:
 To build the Docker image locally:
 
 ```bash
-docker build -t samuelrunggaldier/logrotate:latest .
+docker build -t wydler/logrotate:latest .
 ```
 
 ### CI/CD Pipeline
 
 This project uses GitHub Actions for continuous integration and delivery:
 
-1. **Automated Builds**: Every push to the main branch and pull request triggers an automated build.
-2. **Versioned Releases**: Creating a tag with the format `v*` (e.g., `v1.0.0`) triggers a versioned release.
-3. **Monthly Updates**: The image is automatically rebuilt and published on the first day of each month to ensure it stays up-to-date.
-4. **Docker Hub Publishing**: Successfully built images are automatically published to [Docker Hub](https://hub.docker.com/r/samuelrunggaldier/logrotate).
+1. **Versioned Releases**: Creating a new release e.g., `1.2.3`) triggers a versioned (pre)release.
+2. **Docker Hub Publishing**: Successfully built images are automatically published to [Docker Hub](https://hub.docker.com/r/wydler/logrotate).
 
 ### Versioning Strategy
 
@@ -166,31 +162,23 @@ The Docker images follow semantic versioning:
 
 | Tag Format | Example | Description |
 |------------|---------|-------------|
-| `latest` | `samuelrunggaldier/logrotate:latest` | Latest stable build from the main branch (updated monthly) |
-| `{version}` | `samuelrunggaldier/logrotate:1.2.3` | Specific version (from git tag v1.2.3) |
-| `{major}.{minor}` | `samuelrunggaldier/logrotate:1.2` | Latest patch version of a specific minor version |
-| `{major}` | `samuelrunggaldier/logrotate:1` | Latest minor.patch version of a specific major version |
-| `main` | `samuelrunggaldier/logrotate:main` | Latest build from the main branch (same as latest, updated monthly) |
-| `sha-{commit}` | `samuelrunggaldier/logrotate:sha-a1b2c3d` | Build from a specific commit |
+| `latest` | `wydler/logrotate:latest` | Latest stable build from the latest release |
+| `{version}` | `wydler/logrotate:1.2.3` | Specific version (from git tag 1.2.3) |
+| `master` | `wydler/logrotate:master` | Latest build from the master branch |
+| `fix/enc-{name}` | `wydler/logrotate:nec-infos-adapted-for-fork` | Build from a specific branch |
 
 To use a specific version in your docker-compose.yml, choose one of these options:
 
 ```yaml
 # Option 1: Use a specific version
 logrotate:
-  image: samuelrunggaldier/logrotate:1.0.0
+  image: wydler/logrotate:1.0.0
 ```
 
 ```yaml
-# Option 2: Use latest 1.x.x version
+# Option 2: Use latest version
 logrotate:
-  image: samuelrunggaldier/logrotate:1
-```
-
-```yaml
-# Option 3: Use latest version
-logrotate:
-  image: samuelrunggaldier/logrotate:latest
+  image: wydler/logrotate:latest
 ```
 
 ## Troubleshooting

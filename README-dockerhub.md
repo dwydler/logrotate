@@ -1,23 +1,21 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/samuelru/logrotate/main/.github/assets/logrotate-logo.png" alt="Docker Logrotate Logo" width="200" height="200">
+  <img src="https://raw.githubusercontent.com/dwydler/logrotate-docker/refs/heads/master/.github/assets/logrotate-logo.png" alt="Docker Logrotate Logo" width="200" height="200">
 </p>
 
 # Docker Logrotate
 
 A lightweight Docker image that performs log rotation for other containers running in the same Docker environment.
 
-[![Build and Publish Docker Image](https://github.com/samuelru/logrotate/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/samuelru/logrotate/actions/workflows/docker-publish.yml)
+[![Build and Publish Docker Image](https://github.com/dwydler/logrotate-docker/actions/workflows/build.docker.images.yml/badge.svg)](https://github.com/dwydler/logrotate-docker/blob/master/.github/workflows/build.docker.images.yml)
 
 ## 📦 Available Tags
 
 **Choose the right version for your environment:**
 
-- **`latest`**: Latest stable build (updated monthly) - recommended for testing
-- **`1.2.3`**: Specific version (from git tag v1.2.3) - recommended for production
-- **`1.2`**: Latest patch version of a specific minor version - for controlled updates
-- **`1`**: Latest minor.patch version of a specific major version - for automatic updates
+- **`latest`**: Latest stable build - recommended for testing
+- **`1.2.3`**: Specific version - recommended for production
 
-Example: `samuelrunggaldier/logrotate:1.2.3`
+Example: `wydler/logrotate:1.2.3`
 
 ## 🔄 Overview
 
@@ -35,8 +33,6 @@ This container runs logrotate to manage log files from other containers in your 
 ## 🚀 Quick Start
 
 ```yaml
-version: '3.8'
-
 services:
   # Example service that generates logs
   app:
@@ -46,7 +42,7 @@ services:
 
   # Logrotate service
   logrotate:
-    image: samuelrunggaldier/logrotate:latest
+    image: wydler/logrotate:latest
     volumes:
       - logs:/logs
     environment:
@@ -75,8 +71,8 @@ volumes:
 
 ## 🔗 Links
 
-- [GitHub Repository](https://github.com/samuelru/logrotate)
-- [Full Documentation](https://github.com/samuelru/logrotate/blob/main/README.md)
+- [GitHub Repository](https://github.com/dwydler/logrotate-docker)
+- [Full Documentation](https://github.com/dwydler/logrotate-docker/blob/master/README.md)
 
 ## 📄 License
 

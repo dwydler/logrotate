@@ -7,10 +7,21 @@
 version: 2
 updates:
   - package-ecosystem: "github-actions"
-    directory: "/"
+    directory: "/.github/workflows"
     schedule:
       # Check for updates to GitHub Actions every week
       interval: "weekly"
       day: "saturday"
       timezone: "Europe/Berlin"
       time: "05:00"
+
+  - package-ecosystem: "docker"  # See documentation for possible values
+    directory: "/"  # Location of package manifests
+    schedule:
+      interval: "weekly"
+      timezone: "Europe/Berlin"
+      day: "saturday"
+      time: "05:00"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
